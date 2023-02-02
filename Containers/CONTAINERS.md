@@ -72,6 +72,12 @@ There are some basic steps you can take to set up the chroot, providing faciliti
    ```
    sudo cp /etc/resolv.conf /var/chroot/etc/resolv.conf
    ```
-   
 
+**Note:** The obvious problem is that we can actually see all the host processes, not only the processes which run within the container.
 
+Chroot alone is not enough to run processes in isolation. We have to reach for another tool: namespaces.
+
+### Namespaces
+
+- Namespaces are an **isolation mechanism**. Their main purpose is to isolate containers running on the same host so that these containers cannot access each other’s resources.
+- Namespaces can be composed and nested
